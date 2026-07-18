@@ -496,6 +496,36 @@ button {
 
 }
 
+.refer {
+    color: var(--color-navy-mid);
+    font-size: small;
+    margin-bottom: 25px;
+}
+
+.refer a {
+    color: rgb(2, 2, 97, 0.8);
+    font-size: x-small;
+}
+
+.refer a:hover {
+    color: rgba(67, 67, 248, 0.8);
+}
+
+.supportimage {
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.supportimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 /* ===== 取引実績 (Case highlights) ===== */
 .case-subtitle {
     font-size: 20px;
