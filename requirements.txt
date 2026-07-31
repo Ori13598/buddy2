@@ -1,0 +1,9 @@
+flask
+flask-cors
+requests
+python-dotenv
+
+# Chỉ cần cài 2 dòng dưới nếu bạn thật sự dùng tính năng ghi Google Sheets.
+# Nếu chỉ test local (dry run) thì có thể bỏ qua, không bắt buộc.
+# gspread
+# google-auth

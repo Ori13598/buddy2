@@ -1,0 +1,1550 @@
+/* ============================================
+   CSS Variables (QA.css / index と同じ)
+   ============================================ */
+:root {
+    --color-bg: #ffffff;
+    --color-bg-soft: #f7f8fa;
+    --color-bg-muted: #f0f2f5;
+    --color-navy: #1a2340;
+    --color-navy-mid: #2c3e6b;
+    --color-navy-light: #4a5a8a;
+    --color-accent: #c8a96e;
+    --color-accent-dark: #a88a50;
+    --color-accent-soft: rgba(200, 169, 110, 0.12);
+    --color-text-main: #1a2340;
+    --color-text-sub: #5a6480;
+    --color-text-muted: #9aa0b4;
+    --color-border: #e4e8f0;
+    --color-border-soft: #f0f2f5;
+    --color-white: #ffffff;
+    --font-main: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    --section-pad-y: 80px;
+    --section-pad-x: clamp(20px, 5vw, 80px);
+    --container-max: 1100px;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 8px rgba(26, 35, 64, 0.06);
+    --shadow-md: 0 4px 20px rgba(26, 35, 64, 0.10);
+    --shadow-lg: 0 8px 40px rgba(26, 35, 64, 0.14);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration: 0.4s;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background: var(--color-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: var(--font-main);
+    cursor: pointer;
+}
+
+/* ============================================
+   Page Hero（QA と共通）
+   ============================================ */
+.page-hero {
+    width: 100%;
+}
+
+.page-hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.page-hero-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.page-hero-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.page-hero-desc {
+    font-size: 10px;
+    color: var(--color-text-main);
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    line-height: 1.8;
+}
+
+.page-hero-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.page-hero-breadcrumb a {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s;
+}
+
+.page-hero-breadcrumb a:hover {
+    color: var(--color-accent);
+}
+
+/* ============================================
+   Kantei Intro（安心材料）
+   ============================================ */
+.kantei-section {
+    padding: var(--section-pad-y) var(--section-pad-x) 120px;
+    background: var(--color-bg-soft);
+}
+
+.kantei-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.kantei-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.kantei-intro-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+    margin-top: 20px;
+}
+
+.kantei-intro-title {
+    font-size: clamp(18px, 3.4vw, 24px);
+    font-weight: 800;
+    color: var(--color-navy);
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.kantei-intro-desc {
+    font-size: 12px;
+    color: var(--color-text-sub);
+    line-height: 1.9;
+    margin-bottom: 24px;
+}
+
+.kantei-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-accent-dark);
+    margin-bottom: 8px;
+}
+
+.kantei-badges span:first-child {
+    margin-right: 4px;
+}
+
+/* 3-step explanation */
+.kantei-steps3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.kantei-step3-item {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 18px 14px;
+    text-align: center;
+}
+
+.kantei-step3-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-white);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.kantei-step3-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+}
+
+.kantei-step3-desc {
+    font-size: 11.5px;
+    color: var(--color-text-sub);
+    line-height: 1.6;
+}
+
+/* ============================================
+   Wizard shell
+   ============================================ */
+.wizard-wrap {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+}
+
+/* Progress dots */
+.wizard-progress {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    gap: 4px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.progress-step::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -50%;
+    width: 100%;
+    height: 2px;
+    background: var(--color-border);
+    z-index: 0;
+}
+
+.progress-step:first-child::before {
+    display: none;
+}
+
+.progress-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-bg-soft);
+    border: 2px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s var(--ease);
+}
+
+.progress-label {
+    font-size: 10.5px;
+    color: var(--color-text-muted);
+    margin-top: 6px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.progress-step.is-active .progress-dot,
+.progress-step.is-done .progress-dot {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--color-white);
+}
+
+@keyframes dotPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(26, 35, 64, 0.35);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(26, 35, 64, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(26, 35, 64, 0);
+    }
+}
+
+.dot-pulse {
+    animation: dotPulse 0.6s var(--ease);
+}
+
+.progress-step.is-active::before,
+.progress-step.is-done::before {
+    background: var(--color-navy);
+}
+
+.progress-step.is-active .progress-label,
+.progress-step.is-done .progress-label {
+    color: var(--color-navy);
+}
+
+/* Steps */
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.is-active {
+    display: block;
+    animation: fadeStep 0.35s var(--ease);
+}
+
+@keyframes fadeStep {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 「次へ」「戻る」で進む方向に合わせてスライドする演出 */
+.wizard-step.is-active.slide-forward {
+    animation: slideInRight 0.35s var(--ease);
+}
+
+.wizard-step.is-active.slide-back {
+    animation: slideInLeft 0.35s var(--ease);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.step-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 22px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-required {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+    background: #e05c5c;
+    padding: 2px 8px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+.form-optional-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background: var(--color-bg-muted);
+    padding: 2px 8px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+.form-hint {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.form-hint-inline {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background: var(--color-bg-soft);
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--color-accent);
+    background: var(--color-white);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.form-input.input-error {
+    border-color: #e05c5c;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(224, 92, 92, 0.1);
+}
+
+@keyframes shakeInput {
+
+    10%,
+    90% {
+        transform: translateX(-1px);
+    }
+
+    20%,
+    80% {
+        transform: translateX(2px);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translateX(-4px);
+    }
+
+    40%,
+    60% {
+        transform: translateX(4px);
+    }
+}
+
+.shake-anim {
+    animation: shakeInput 0.4s var(--ease);
+}
+
+.form-input:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.7;
+}
+
+select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6480' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.link-btn {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-navy-mid);
+    text-decoration: underline;
+    padding: 2px 0;
+}
+
+.link-btn:hover {
+    color: var(--color-accent-dark);
+}
+
+/* Postcode row（QA と共通） */
+.postcode-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.postcode-prefix {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-sub);
+    flex-shrink: 0;
+}
+
+.postcode-input {
+    flex: 0 0 150px;
+    min-width: 0;
+}
+
+.postcode-btn {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    padding: 12px 18px;
+    background: var(--color-navy);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s var(--ease);
+    white-space: nowrap;
+}
+
+.postcode-btn:hover {
+    background: var(--color-navy-mid);
+    transform: translateY(-1px);
+}
+
+.postcode-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Error messages */
+.form-error {
+    font-size: 12.5px;
+    color: #e05c5c;
+    font-weight: 500;
+    display: none;
+}
+
+.form-error.visible {
+    display: block;
+    animation: errorSlideIn 0.3s var(--ease);
+}
+
+@keyframes errorSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-note {
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    padding-top: 4px;
+    margin-bottom: 20px;
+}
+
+.form-send-error {
+    font-size: 13px;
+    color: #e05c5c;
+    margin-top: 12px;
+    display: none;
+}
+
+.form-send-error.visible {
+    display: block;
+}
+
+/* ============================================
+   Type cards（物件種別選択）
+   ============================================ */
+.type-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 8px;
+}
+
+.sokochi {
+    background-image: url();
+}
+
+.akiya {
+    background-image: url();
+}
+
+.manshon {
+    background-image: url();
+}
+
+.type-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-soft);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 22px 14px;
+    text-align: center;
+    transition: all 0.25s var(--ease);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.type-card.is-selected {
+    border-color: var(--color-navy);
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 選択チェックマーク（右上にポップイン） */
+.type-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    opacity: 0;
+    transform: scale(0.4);
+    transition: all 0.25s var(--ease);
+    z-index: 3;
+}
+
+.type-card.is-selected::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.type-card::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+    opacity: 0;
+    transform: scale(0.4);
+    transition: all 0.25s var(--ease) 0.05s;
+    z-index: 4;
+}
+
+.type-card.is-selected::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes cardPop {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.035);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.type-card.card-pop {
+    animation: cardPop 0.3s var(--ease);
+}
+
+/* リップルエフェクト（クリック位置から円が広がる） */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes rippleAnim {
+    to {
+        transform: scale(2.6);
+        opacity: 0;
+    }
+}
+
+.type-card .ripple-effect,
+.wizard-btn--back .ripple-effect,
+.postcode-btn .ripple-effect {
+    background: rgba(26, 35, 64, 0.14);
+}
+
+.wizard-btn--next .ripple-effect,
+.wizard-btn--submit .ripple-effect {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.type-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+}
+
+.type-card-desc {
+    font-size: 11.5px;
+    color: var(--color-text-sub);
+    line-height: 1.6;
+}
+
+/* Detail panels（種別ごとに出し分け） */
+.detail-panel {
+    display: none;
+}
+
+.detail-panel.is-active {
+    display: block;
+}
+
+/* ============================================
+   File upload（QA と共通）
+   ============================================ */
+.file-upload-area {
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.25s, background 0.25s;
+    background: var(--color-bg-soft);
+}
+
+.file-upload-area:hover,
+.file-upload-area.drag-over {
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+}
+
+.file-upload-area.drag-over {
+    animation: uploadPulse 0.9s ease-in-out infinite;
+}
+
+@keyframes uploadPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.015);
+    }
+}
+
+.file-upload-area input[type="file"] {
+    display: none;
+}
+
+.file-upload-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.file-upload-text {
+    font-size: 13px;
+    color: var(--color-text-sub);
+}
+
+.file-upload-sub {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+.file-upload-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.file-upload-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--color-navy);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+.file-upload-item button {
+    background: none;
+    border: none;
+    color: #e05c5c;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* ============================================
+   Confirm screen
+   ============================================ */
+.confirm-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 24px;
+}
+
+.confirm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.confirm-item:last-child {
+    border-bottom: none;
+}
+
+.confirm-item-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.confirm-item-label {
+    font-size: 11.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+
+.confirm-item-value {
+    font-size: 14.5px;
+    color: var(--color-text-main);
+    font-weight: 500;
+    white-space: pre-line;
+    word-break: break-word;
+}
+
+.confirm-edit-link {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-navy-mid);
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 2px 0;
+}
+
+.confirm-edit-link:hover {
+    color: var(--color-accent-dark);
+}
+
+/* ============================================
+   Wizard nav buttons
+   ============================================ */
+.wizard-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.wizard-btn {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.wizard-btn--back {
+    flex: 0 0 110px;
+    background: var(--color-white);
+    color: var(--color-text-sub);
+    border: 1.5px solid var(--color-border);
+}
+
+.wizard-btn--back:hover {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+}
+
+.wizard-btn--next,
+.wizard-btn--submit {
+    background: var(--color-navy);
+    color: var(--color-white);
+    border: 2px solid var(--color-navy);
+}
+
+.wizard-btn--next::before,
+.wizard-btn--submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-accent);
+    transform: translateX(-100%);
+    transition: transform 0.4s var(--ease);
+    z-index: 0;
+}
+
+.wizard-btn--next:hover::before,
+.wizard-btn--submit:hover::before {
+    transform: translateX(0);
+}
+
+.wizard-btn--next span,
+.wizard-btn--submit span {
+    position: relative;
+    z-index: 1;
+}
+
+.wizard-btn--next:hover,
+.wizard-btn--submit:hover {
+    border-color: var(--color-accent);
+}
+
+.wizard-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.wizard-btn--submit.is-loading span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-spinner {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: btnSpin 0.7s linear infinite;
+}
+
+@keyframes btnSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wizard-step[data-step="0"]~.wizard-nav .wizard-btn--back,
+.wizard-nav .wizard-btn--back[data-hidden="true"] {
+    visibility: hidden;
+}
+
+/* Success */
+.form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 56px 24px;
+    gap: 16px;
+}
+
+.form-success.visible {
+    display: flex;
+}
+
+.form-success span {
+    font-size: 48px;
+    color: var(--color-accent);
+    width: 80px;
+    height: 80px;
+    background: var(--color-accent-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: successPop 0.5s var(--ease);
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.form-success h3 {
+    font-size: 18px;
+    color: var(--color-navy);
+    font-weight: 700;
+}
+
+.form-success p {
+    font-size: 14.5px;
+    color: var(--color-text-sub);
+    line-height: 1.8;
+    max-width: 420px;
+}
+
+/* ============================================
+   Sticky call bar（モバイル向け）
+   ============================================ */
+.sticky-call-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    display: none;
+    background: var(--color-navy);
+    padding: 12px 16px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-call-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--color-white);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent-dark);
+}
+
+@media (max-width: 640px) {
+    .sticky-call-bar {
+        display: block;
+    }
+
+    .kantei-section {
+        padding-bottom: 100px;
+    }
+}
+
+
+/* ============================================
+    査定の流れ
+    ============================================ */
+.process-section {
+    padding: var(--section-pad-y) var(--section-pad-x);
+    background: var(--color-bg);
+}
+
+.process-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.process-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+}
+
+.process-title {
+    font-size: clamp(22px, 3.6vw, 30px);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 18px;
+}
+
+.process-desc {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    font-size: 13px;
+    color: var(--color-text-sub);
+    line-height: 1.9;
+    text-align: left;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.process-step:hover {
+    background: rgba(249, 250, 176, 0.5);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+
+}
+
+.process-step {
+    display: flex;
+    gap: 14px;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 22px 18px;
+}
+
+.process-step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 6px;
+}
+
+.process-step-desc {
+    font-size: 12px;
+    color: var(--color-text-sub);
+    line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .process-desc {
+        text-align: left;
+    }
+}
+
+/* ============================================
+    会社紹介・私たちの強み
+    ============================================ */
+.about-section {
+    padding: var(--section-pad-y) var(--section-pad-x);
+    background: var(--color-bg-soft);
+}
+
+.about-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+}
+
+.about-title {
+    font-size: clamp(20px, 3.4vw, 26px);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 18px;
+}
+
+.about-desc {
+    max-width: 760px;
+    margin: 0 auto 40px;
+    font-size: 13px;
+    color: var(--color-text-sub);
+    line-height: 1.9;
+    text-align: left;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.feature-item {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    background: rgba(249, 250, 176, 0.5);
+}
+
+.feature-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.feature-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 10px;
+}
+
+.feature-desc {
+    font-size: 12.5px;
+    color: var(--color-text-sub);
+    line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+    店舗情報
+    ============================================ */
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--section-pad-y) var(--section-pad-x);
+    background: var(--color-bg-soft);
+}
+
+.brand-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.brand-word {
+    font-size: 14px;
+    color: var(--color-text-sub);
+    margin-bottom: 30px;
+}
+
+.brand-content {
+    width: 100%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.brand-content-brand {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    box-shadow: var(--shadow-sm);
+}
+
+.brand-content-brand:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.brand-content-brand-div {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: var(--color-accent);
+    color: var(--color-white);
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.brand-content-brand-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+}
+
+.brand-content-brand-name:hover {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--color-accent);
+}
+
+.brand-content-brand-address {
+    font-size: 12px;
+    color: var(--color-text-sub);
+    line-height: 1.8;
+    margin-bottom: 8px;
+    flex-grow: 1;
+}
+
+.brand-content-brand-phone {
+    font-size: 12px;
+    color: var(--color-text-main);
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.brand-content-brand-maplink {
+    font-size: 12px;
+    color: var(--color-accent);
+    font-weight: 600;
+    transition: letter-spacing 0.3s ease;
+}
+
+.brand-content-brand-maplink:hover {
+    letter-spacing: 2px;
+}
+
+.brand-content-brand-phone:hover {
+    color: var(--color-accent);
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 1200px) {
+    .brand-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .brand-content-brand:nth-child(4) {
+        margin-left: calc(10％ + 8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .brand {
+        padding: 60px 16px;
+    }
+
+    .brand-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-content-brand:nth-child(4) {
+        margin-left: 0;
+        grid-column: auto;
+    }
+
+    .brand-content-brand:nth-child(5) {
+        margin-left: 0;
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-content {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-content-brand:nth-child(4),
+    .brand-content-brand:nth-child(5) {
+        margin-left: 0;
+        grid-column: auto;
+    }
+}
+
+/* ============================================
+   ボット対策: honeypot field
+   ============================================ */
+.hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+    .kantei-steps3 {
+        grid-template-columns: 1fr;
+    }
+
+    .type-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-step::before {
+        top: 10px;
+        height: 1px;
+    }
+
+    .progress-dot {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .progress-label {
+        font-size: 8.5px;
+    }
+}
+
+@media (max-width: 640px) {
+    .kantei-section {
+        padding: 48px 16px;
+    }
+
+    .wizard-wrap {
+        padding: 22px 16px;
+    }
+
+    .postcode-row {
+        flex-wrap: wrap;
+    }
+
+    .postcode-input {
+        flex: 1 1 120px;
+    }
+
+    .wizard-nav {
+        flex-wrap: wrap;
+    }
+
+    .wizard-btn--back {
+        flex: 1 1 100%;
+        order: 2;
+    }
+
+    .wizard-btn--next,
+    .wizard-btn--submit {
+        flex: 1 1 100%;
+        order: 1;
+    }
+}
