@@ -1,0 +1,970 @@
+:root {
+    /* ===== Warm / classic palette (thay cho navy) ===== */
+    --color-bg: #fbf6ec;
+    --color-bg-soft: #f7eedf;
+    --color-bg-muted: #f0e2c8;
+    --color-primary: #3a2117;
+    /* mahogany đậm - thay cho navy */
+    --color-primary-mid: #5a3524;
+    --color-primary-light: #8a5a3c;
+    --color-burgundy: #6f2b20;
+    /* điểm nhấn gradient hero */
+    --color-accent: #b8863c;
+    /* vàng đồng cổ điển */
+    --color-accent-dark: #8c6423;
+    --color-accent-soft: rgba(184, 134, 60, 0.14);
+    --color-text-main: #2c1b12;
+    --color-text-sub: #6b5645;
+    --color-text-muted: #a38f76;
+    --color-border: #e8d9be;
+    --color-border-soft: #f0e4cd;
+    --color-white: #ffffff;
+    --font-main: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    --font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    --section-pad-y: 60px;
+    --section-pad-x: clamp(20px, 5vw, 80px);
+    --container-max: 1200px;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+    --shadow-sm: 0 2px 10px rgba(58, 33, 23, 0.08);
+    --shadow-md: 0 4px 24px rgba(58, 33, 23, 0.12);
+    --shadow-lg: 0 10px 44px rgba(58, 33, 23, 0.16);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration: 0.4s;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background: var(--color-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: var(--font-main);
+    cursor: pointer;
+}
+
+/* ============================================
+   HERO — 東京タワーをモチーフにしたラインアートで
+   「港区」を明確に想起させるシグネチャー要素
+   ============================================ */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-burgundy) 55%, #8a4a2c 100%);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(184, 134, 60, 0.18) 0%, rgba(0, 0, 0, 0) 60%);
+    z-index: 0;
+}
+
+.hero img {
+    position: inline;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.7) brightness(0.7);
+    transition: opacity 0.5s ease;
+}
+
+.hero img.is-loaded {
+    opacity: 1;
+}
+
+.hero-eyebrow {
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-top: 3px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 4.6vw, 54px);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title-h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4.6vw, 32px);
+    font-weight: 500;
+    color: var(--color-white);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title-h2 span {
+    color: var(--color-accent);
+}
+
+.hero-desc {
+    font-size: clamp(13px, 1.5vw, 15px);
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 900px;
+    line-height: 2;
+    position: relative;
+    z-index: 1;
+}
+
+.page-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px 120px;
+}
+
+/* ============================================
+   TOKYO BRANCH（会社概要をTokyo視点で再構成）
+   ============================================ */
+.company-mission {
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-lg);
+    padding: 52px var(--section-pad-x) 44px;
+    margin-bottom: 48px;
+}
+
+.company-mission-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.company-mission-eyebrow {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    margin-bottom: 14px;
+}
+
+.company-mission-title {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+.company-mission-body {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.company-mission-body p {
+    font-size: 14px;
+    color: var(--color-text-sub);
+    line-height: 1.95;
+    margin-bottom: 16px;
+}
+
+.company-mission-body p:last-child {
+    margin-bottom: 0;
+}
+
+.section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.section-label-english {
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--color-accent-soft);
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: var(--color-accent);
+}
+
+/* ============================================
+   WHY BUDDY — 強みカード（新規セクション）
+   ============================================ */
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 80px;
+}
+
+.strength-card {
+    background: var(--color-white);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 30px 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+
+.strength-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.strength-num {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.strength-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.strength-desc {
+    font-size: 12.5px;
+    color: var(--color-text-sub);
+    line-height: 1.85;
+}
+
+/* ============================================
+   VISION — 大きめセリフ体の引用ブロック
+   ============================================ */
+.vision-section {
+    text-align: center;
+    padding: 56px var(--section-pad-x);
+    margin-bottom: 80px;
+    background: var(--color-primary);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(184, 134, 60, 0.16) 0%, rgba(0, 0, 0, 0) 65%);
+}
+
+.vision-section img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.7) brightness(0.3);
+    transition: opacity 0.5s ease;
+}
+
+.vision-section img.is-loaded {
+    opacity: 1;
+}
+
+.vision-eyebrow {
+    position: relative;
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.vision-quote {
+    position: relative;
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 2.6vw, 28px);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.8;
+    max-width: 720px;
+    margin: 0 auto 22px;
+}
+
+.vision-text {
+    position: relative;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.66);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 2;
+}
+
+/* ============================================
+   POSITION（東京・営業のみ／1枚のスペックシート）
+   ============================================ */
+.positions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.pos-card {
+    background: var(--color-white);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.pos-card-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
+    padding: 36px 36px 30px;
+}
+
+.pos-card-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 13px;
+    border-radius: 50px;
+    background: rgba(184, 134, 60, 0.22);
+    color: var(--color-accent);
+    border: 1px solid rgba(184, 134, 60, 0.35);
+    margin-bottom: 15px;
+}
+
+.pos-card-title {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 2.5vw, 27px);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+
+.pos-card-subtitle {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+}
+
+.pos-card-body {
+    padding: 30px 36px 34px;
+}
+
+.pos-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.pos-highlight {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    border-left: 3px solid var(--color-accent);
+}
+
+.pos-highlight-label {
+    font-size: 10px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.pos-highlight-value {
+    display: grid;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.detail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: all .3s var(--ease);
+    width: 100%;
+    justify-content: center;
+}
+
+.detail-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.detail-btn.open {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.detail-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform .3s;
+}
+
+.detail-btn.open svg {
+    transform: rotate(180deg);
+}
+
+.detail-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detail-panel.open {
+    max-height: 4000px;
+}
+
+.detail-inner {
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-white);
+    margin-top: 24px;
+}
+
+.detail-section {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.detail-section:last-child {
+    border-bottom: none;
+}
+
+.detail-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-list li {
+    font-size: 13.5px;
+    color: var(--color-text-sub);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.85;
+}
+
+.detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.detail-tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    border: 1px solid rgba(184, 134, 60, 0.35);
+    font-weight: 600;
+}
+
+.detail-tag.benefit {
+    background: var(--color-bg-soft);
+    color: var(--color-primary);
+    border-color: var(--color-border);
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 13.5px;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row-label {
+    min-width: 100px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding-top: 2px;
+    flex-shrink: 0;
+}
+
+.detail-row-value {
+    color: var(--color-primary);
+    line-height: 1.8;
+}
+
+.income-example {
+    padding: 14px 18px;
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-accent);
+}
+
+.income-example+.income-example {
+    margin-top: 10px;
+}
+
+.income-example .who {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.income-example .amount {
+    font-size: 13px;
+    color: var(--color-text-sub);
+}
+
+.income-example .amount b {
+    color: var(--color-accent-dark);
+}
+
+.note-box {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: var(--color-accent-soft);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-accent);
+}
+
+.note-box p {
+    font-size: 12px;
+    color: var(--color-accent-dark);
+    font-weight: 600;
+    line-height: 1.85;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 64px 0 48px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+}
+
+.section-divider-text {
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* ============================================
+   FORM（構造は元ページと同一 / 職種は東京・営業のみ）
+   ============================================ */
+.form-wrap {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--color-border);
+    padding: 48px 48px 52px;
+    box-shadow: var(--shadow-sm);
+}
+
+.form-header {
+    margin-bottom: 36px;
+}
+
+.form-title {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    font-size: 13.5px;
+    color: var(--color-text-sub);
+    line-height: 1.85;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full {
+    grid-column: 1/-1;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: .5px;
+}
+
+.form-label span {
+    color: #a5432f;
+    margin-left: 3px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-main);
+    font-size: 14px;
+    color: var(--color-text-main);
+    background: var(--color-white);
+    transition: border-color .25s, box-shadow .25s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(184, 134, 60, 0.18);
+}
+
+.form-select-wrap {
+    position: relative;
+}
+
+.form-select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+    font-size: 13px;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.7;
+}
+
+.form-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 28px 20px;
+    cursor: pointer;
+    background: var(--color-white);
+    transition: border-color .25s, background .25s;
+    text-align: center;
+}
+
+.form-upload-label:hover {
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+}
+
+.form-upload-label svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.form-upload-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.form-upload-sub {
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+.form-upload-input {
+    display: none;
+}
+
+.form-upload-name {
+    font-size: 12px;
+    color: var(--color-accent-dark);
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    margin-top: 12px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background .3s, transform .2s;
+}
+
+.form-submit:hover {
+    background: var(--color-primary-mid);
+    transform: translateY(-1px);
+}
+
+.form-submit svg {
+    width: 18px;
+    height: 18px;
+}
+
+.form-note {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.9;
+}
+
+.form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 16px;
+}
+
+.form-success.show {
+    display: flex;
+}
+
+.form-success svg {
+    width: 56px;
+    height: 56px;
+    color: var(--color-accent);
+}
+
+.form-success-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.form-success-text {
+    font-size: 14px;
+    color: var(--color-text-sub);
+    line-height: 1.9;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:900px) {
+    .strengths-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:768px) {
+
+    .page-body {
+        padding: 56px 16px 80px;
+    }
+
+    .hero-title {
+        font-size: clamp(26px, 3.0vw, 36px);
+        padding: 0 20px 0 20px;
+    }
+
+    .hero-title-h2 {
+        font-size: clamp(16px, 3.0vw, 20px);
+        font-weight: 500;
+        padding: 0 40px 0 40px;
+    }
+
+    .hero-desc {
+        font-size: clamp(10px, 1.2vw, 13px);
+        padding: 0 20px 10px 20px;
+    }
+
+    .strengths-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pos-highlights {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-wrap {
+        padding: 28px 20px 32px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-section {
+        padding: 20px 20px;
+    }
+
+    .vision-section {
+        padding: 40px 24px;
+    }
+}
+
+@media(max-width:480px) {
+    .pos-highlights {
+        grid-template-columns: 1fr;
+    }
+}
