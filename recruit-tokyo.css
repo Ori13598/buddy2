@@ -266,11 +266,141 @@ button {
 }
 
 /* ============================================
+   POSITION'S CONTENT — 業務詳細（WHY BUDDY ESTATEとは
+   意図的に差別化：ハッシュタグ強調＋2カラム対比構成）
+   ============================================ */
+.role-detail-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 80px;
+}
+
+.role-detail-row::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, var(--color-border) 15%, var(--color-border) 85%, transparent);
+}
+
+.role-detail-card {
+    position: relative;
+    background: linear-gradient(160deg, var(--color-white) 0%, var(--color-bg-soft) 140%);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 34px 30px 30px;
+    overflow: hidden;
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+
+.role-detail-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-burgundy));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s var(--ease);
+}
+
+.role-detail-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.role-detail-card:hover::after {
+    transform: scaleX(1);
+}
+
+.role-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    margin-bottom: 20px;
+    transition: transform .5s var(--ease), background .4s var(--ease), color .4s var(--ease);
+}
+
+.role-detail-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.role-detail-card:hover .role-detail-icon {
+    transform: rotate(-8deg) scale(1.08);
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.role-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.role-detail-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    border: 1px solid rgba(184, 134, 60, 0.3);
+    transition: background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
+}
+
+.role-detail-card:hover .role-detail-tag {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.role-detail-card:hover .role-detail-tag:nth-child(2) {
+    transition-delay: .05s;
+}
+
+.role-detail-card:hover .role-detail-tag:nth-child(3) {
+    transition-delay: .1s;
+}
+
+.role-detail-title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.role-detail-desc {
+    font-size: 13px;
+    color: var(--color-text-sub);
+    line-height: 1.9;
+}
+
+/* ============================================
    WHY BUDDY — 強みカード（新規セクション）
    ============================================ */
 .strengths-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
     margin-bottom: 80px;
 }
@@ -913,6 +1043,15 @@ button {
 @media(max-width:900px) {
     .strengths-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .role-detail-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .role-detail-row::before {
+        display: none;
     }
 }
 
